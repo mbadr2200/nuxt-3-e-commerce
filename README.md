@@ -7,7 +7,7 @@
 ## Installation
 ```bash
 # Clone the repository
-git clone https://github.com/mbadr2200/w88.git
+git clone https://github.com/mbadr2200/w88
 cd w88
 
 # Install dependencies
