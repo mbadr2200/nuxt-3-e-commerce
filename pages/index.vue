@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const localeRoute = useLocaleRoute();
+const { t } = useI18n();
 </script>
 <template>
     <div class="bg-white">
@@ -9,9 +10,9 @@ const localeRoute = useLocaleRoute();
         </div>
         <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div class="text-center">
-            <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">Products that make your life easier</h1>
-            <p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">Check out our products and find the best one for you . Our products are designed to make your life easier and more efficient.</p>
-           <BaseButton class="my-5" @click="navigateTo(localeRoute('/products'))">Explore Products</BaseButton>
+            <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">{{ t('productsThatMakeYourLifeEasier') }}</h1>
+            <p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">{{ t('checkOutOurProductsAndFindTheBestOneForYou') }}</p>
+           <BaseButton class="my-5" @click="navigateTo(localeRoute('/products'))">{{ t('exploreProducts') }}</BaseButton>
           </div>
         </div>
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">

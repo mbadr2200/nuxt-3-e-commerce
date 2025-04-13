@@ -1,3 +1,29 @@
 {
-    
+    "filterProducts": "تصفية المنتجات",
+    "title": "العنوان",
+    "categories": "التصنيفات",
+    "price": "السعر",
+    "resetFilters": "إعادة تعيين المرشحات",
+    "loadMore": "تحميل المزيد",
+    "productsThatMakeYourLifeEasier": "المنتجات التي تسهل حياتك",
+    "checkOutOurProductsAndFindTheBestOneForYou": "تصفح منتجاتنا واختر الأفضل لك",
+    "exploreProducts": "استكشف المنتجات",
+    "products":{
+        "title": "المنتجات",
+        "description": "المنتجات التي تسهل حياتك",
+        "products": "المنتجات",
+        "product": "المنتج",
+        "productsDescription": "المنتجات التي تسهل حياتك"
+    },
+    "nav": {
+        "home": "الرئيسية",
+        "about": "عن الموقع",
+        "products": "المنتجات"
+    },
+    "auth": {
+        "login": "تسجيل الدخول",
+        "register": "تسجيل",
+        "profile": "الحساب",
+        "logout": "تسجيل الخروج"
+    }
 }

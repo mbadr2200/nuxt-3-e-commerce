@@ -1,3 +1,31 @@
 {
-    
+    "filterProducts": "Filter Products",
+    "title": "Title",
+    "categories": "Categories",
+    "price": "Price",
+    "resetFilters": "Reset Filters",
+    "loadMore": "Load More",
+    "productsThatMakeYourLifeEasier": "Products That Make Your Life Easier",
+    "checkOutOurProductsAndFindTheBestOneForYou": "Check out our products and find the best one for you . Our products are designed to make your life easier and more efficient.",
+    "exploreProducts": "Explore Products" ,
+    "products":{
+        "title": "Products",
+        "description": "Our products are designed to make your life easier and more efficient.",
+        "products": "Products",
+        "product": "Product",
+        "productsDescription": "Our products are designed to make your life easier and more efficient.",
+        "productsDescription": "Our products are designed to make your life easier and more efficient.",
+        "productsDescription": "Our products are designed to make your life easier and more efficient."
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "products": "Products"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "profile": "Profile",
+        "logout": "Logout"
+    }
 }

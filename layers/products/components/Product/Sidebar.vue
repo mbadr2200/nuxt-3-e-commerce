@@ -13,10 +13,12 @@ const resetFilters = () => {
     categoryQuery.value = '';
     priceQuery.value = [0, 1000];
 }
+
+const {t} = useI18n();
 </script>
 <template>
     <div class="bg-light h-max lg:sticky top-10 w-full lg:w-[20%] lg:max-w-[20%] p-3 space-y-3 rounded-md">
-        <h2 class="text-lg font-bold">Filter Products</h2>
+        <h2 class="text-lg font-bold">{{t('filterProducts')}}</h2>
         <ProductFilterItem label="Title">
              <BaseInput name="title" v-model="titleQuery" placeholder="Search by title" class="w-full"
                 :inputOnly="true" />

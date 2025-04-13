@@ -1,18 +1,19 @@
 <script setup lang="ts">
 
 const localeRoute = useLocaleRoute()
+const { t } = useI18n()
 const items = ref([
     {
-        label: 'Home',
+        label: 'nav.home',
         icon: "solar:home-angle-linear",
         to: '/'
     },
     {
-        label: 'About',
+        label: 'nav.about',
         to: '/about'
     },
     {
-        label: "Products",
+        label: "nav.products",
         to: '/products'
     },
 ]);
@@ -33,7 +34,7 @@ const isOpen = ref(false)
                 <li v-for="item in items" :key="item.label" class="text-light hover:text-secondary">
                     <NuxtLink :to="localeRoute(item.to)" class="flex items-center gap-2">
                         <Icon v-if="item.icon" :name="item.icon" />
-                        {{ item.label }}
+                        {{ t(item.label) }}
                     </NuxtLink>
                 </li>
             </ul>
@@ -44,7 +45,7 @@ const isOpen = ref(false)
                     <li v-for="item in items" :key="item.label" class="text-light hover:text-secondary">
                         <NuxtLink :to="localeRoute(item.to)" class="flex items-center gap-2">
                             <Icon v-if="item.icon" :name="item.icon" />
-                            {{ item.label }}
+                            {{ t(item.label) }}
                         </NuxtLink>
                     </li>
                 </ul>
