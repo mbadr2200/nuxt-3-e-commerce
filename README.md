@@ -1,75 +1,41 @@
-# Nuxt Minimal Starter
+# W88 E-commerce Platform
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Prerequisites
+- Node.js (v16 or higher)
+- Yarn package manager
 
-## Setup
-
-Make sure to install dependencies:
-
+## Installation
 ```bash
-# npm
-npm install
+# Clone the repository
+git clone https://github.com/mbadr2200/w88.git
+cd w88
 
-# pnpm
-pnpm install
-
-# yarn
+# Install dependencies
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+## Development
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
+# Start development server
 yarn dev
-
-# bun
-bun run dev
+# Access at http://localhost:3000
 ```
 
-## Production
-
-Build the application for production:
-
+## Production Build
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
+# Build for production
 yarn build
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
+# Preview production build
 yarn preview
-
-# bun
-bun run preview
+or node .output/server/index.mjs
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Testing
+```bash
+# Run tests
+yarn test
+
+# Run tests with coverage
+yarn test:coverage
+```
