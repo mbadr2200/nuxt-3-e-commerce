@@ -6,7 +6,6 @@ defineProps({
         type: Array as PropType<Product[]>,
         required: true
     },
-   
     canFetchMore: {
         type: Boolean,
         default:false
@@ -19,13 +18,14 @@ defineProps({
 const emit = defineEmits(['loadMore']);
 </script>
 <template>
-    <div class="bg-white">
+    <div >
         <div class="mx-auto max-w-2xl px-4  lg:max-w-7xl lg:px-8">
+            <BaseEmpty v-if="!loading && products?.length === 0" class="mx-auto"/>
             <div  class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                <template v-if="!loading">
+                <template v-if="products?.length > 0 && !loading">
                     <ProductCard v-for="product in products" :key="product.id" :product="product" />
                 </template>
-               <template v-else>
+               <template v-else-if="loading">
                 <Skeleton v-for="i in 8" :key="i" class="w-full h-full" height="300px" width="100%" />
                </template>
             </div>
