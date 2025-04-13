@@ -86,6 +86,7 @@ export default function useAuth() {
         userStore.clearUser()
         navigateTo(localeRoute('/login'))
     }
+    
     return {
         login,
         register,

@@ -10,10 +10,10 @@ export default defineNuxtPlugin(() => {
             'Authorization':`Bearer ${token.value}`
         },
         onRequestError:({ request, options, error })=>{
-            console.log("Error inside the error plugin")
-           if(error.cause === 401){
+            console.log("Error inside the error plugin",error)
+           if(error.message.includes('expired')){
+            // in case of expired token the user should be logged out and navigated to the login page
             token.value = null;
-            // here we should implement the refresh token logic and handle the error if the refresh token is expired
             navigateTo('/login');
            }
         }

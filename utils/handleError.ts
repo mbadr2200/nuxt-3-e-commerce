@@ -77,6 +77,8 @@ export default function handleError(
     .replace(/^\[.*\]\s*/, '') // Remove any [Error] prefixes
     .trim()
 
+
+    const {logout} = useAuth();
   // Handle common HTTP error codes
   if (readableError.includes('401')) {
     readableError = 'Invalid credentials'
@@ -88,6 +90,9 @@ export default function handleError(
     readableError = 'Server error'
   } else if (readableError.includes('Network Error')) {
     readableError = 'Network connection error'
+  }else if (readableError.includes('expired')) {
+    readableError = 'Session expired'
+    logout();
   }
 
   // Log error for debugging
