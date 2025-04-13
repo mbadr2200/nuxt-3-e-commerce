@@ -11,13 +11,18 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-   
+    modelValue: {
+        type: [String,Number,Array],
+        default: ''
+    },
+
 })
 defineOptions({
     inheritAttrs: false
 })
-const {value,errorMessage} = useField(props.name,undefined,{
-    syncVModel:true
+
+const {value,errorMessage} = useField(() =>props.name,undefined,{
+    syncVModel: true,
 })
 </script>
 

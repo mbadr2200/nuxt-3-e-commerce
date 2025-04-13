@@ -19,7 +19,7 @@ export default function useProducts() {
                 params:{
                     limit:paginationLimit,
                     offset:paginationOffset,
-                    categoryId:options?.filters?.category,
+                    categorySlug:options?.filters?.category,
                     title:options?.filters?.title,
                     price_min:options?.filters?.price?.[0],
                     price_max:options?.filters?.price?.[1]

@@ -14,15 +14,38 @@ const priceQuery = useRouteQuery('price');
 const debouncedPriceQuery = useDebounce(priceQuery, 500);
 const pageOffsetQuery = ref(0);
 const currentPaginationLimit = ref(PAGINATION_LIMIT);
-const productsData = ref<Product[]>([]);
 const canFetchMore = ref(true);
 
-const productsCategories = computed(() => {
-    const categories = productsData.value.map((product) => product.category);
-    return uniqBy(categories, 'id');
-})
-const { status } = await useAsyncData('products', async () => {
+const setFetchMore = (length: number) => {
+    if (length < PAGINATION_LIMIT) {
+        canFetchMore.value = false;
+    } else 
+    {
+        canFetchMore.value = true;
+    }
+}
+
+const { status,data:productsData } = await useAsyncData('products', async () => {
     const res = await getProducts({
+        pagination: {
+            offset: 0,
+            limit: currentPaginationLimit.value
+        },
+        filters:{
+            category: categoryQuery.value as string,
+            title: titleQuery.value as string,
+            price: priceQuery.value as unknown as number[]
+        }
+    })
+    setFetchMore(res.length);
+    return res;
+}, {
+    watch: [debouncedTitleQuery, categoryQuery, debouncedPriceQuery],
+});
+const loading = ref(false);
+const handleLoadMore = async () => {
+    loading.value = true;
+  const res = await getProducts({
         pagination: {
             offset: pageOffsetQuery.value,
             limit: currentPaginationLimit.value
@@ -33,19 +56,10 @@ const { status } = await useAsyncData('products', async () => {
             price: priceQuery.value as unknown as number[]
         }
     })
-    if (res.length < PAGINATION_LIMIT) {
-        canFetchMore.value = false;
-    } else 
-    {
-        canFetchMore.value = true;
-    }
+    setFetchMore(res.length);
     productsData.value.push(...res)
-}, {
-    watch: [pageOffsetQuery, debouncedTitleQuery, categoryQuery, debouncedPriceQuery],
-});
-const handleLoadMore = () => {
     pageOffsetQuery.value += PAGINATION_LIMIT;
-
+    loading.value = false;
 }
 </script>
 
@@ -53,8 +67,8 @@ const handleLoadMore = () => {
     <div>
         <BaseTitle title="Products" />
         <div class="flex flex-col md:flex-row">
-            <ProductSidebar :categories="productsCategories" />
-            <ProductList class="flex-auto bg-red-300" :products="productsData" @loadMore="handleLoadMore" :loading="status === 'pending'"
+            <ProductSidebar />
+            <ProductList class="flex-auto" :products="productsData" @loadMore="handleLoadMore" :loading="status === 'pending' || loading"
                 :canFetchMore="canFetchMore" />
         </div>
     </div>
