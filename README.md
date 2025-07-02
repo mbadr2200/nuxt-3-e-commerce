@@ -1,4 +1,4 @@
-# W88 E-commerce Platform
+# E-commerce Platform
 
 ## Prerequisites
 - Node.js (v16 or higher)
